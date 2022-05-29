@@ -10,21 +10,22 @@ function App() {
   const items = useSelector(state => state.itemsList);
   const dispatch = useDispatch();
   const changeFilter = useRef(null);
-  const [filter, setFilter] = useState(items);
+  const [filter, setFilter] = useState([]);
 
   useEffect(() => {
     // Сразу фильтруем всё, как только происходит рендер
-    setFilter(inputFilter(items, changeFilter.current.value));
+    setFilter(inputFilter(items, changeFilter.current.value || ''));
 
     // Подписка на события input, чтобы получать отфильтрованный список
     fromEvent(changeFilter.current, 'input')
-    .pipe(debounceTime(10))
+    .pipe(debounceTime(200))
     .subscribe(() => {
-      const filter = changeFilter.current.value;
       // Сохраняем локально отфильтрованный список итемов
       setFilter(inputFilter(items, changeFilter.current.value));
     })
-  },[items])
+  },[items]);
+
+  console.log(filter);
 
   return (
     <div className="content">
