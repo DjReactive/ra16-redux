@@ -1,0 +1,23 @@
+.content {
+  margin: 0 auto;
+  width: 400px;
+  text-align: center;
+}
+
+.content > ol {
+  text-align: left;
+  list-style: circle;
+  padding-left: 20px;
+}
+ol > li {
+  padding: 5px 0;
+  border-bottom: 1px solid #aaa;
+}
+.item {
+  display: flex;
+  justify-content: space-between;
+}
+.item__price > span, .item__price > button {
+  margin-left: 10px;
+  font-weight: bold;
+}

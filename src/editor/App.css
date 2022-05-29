@@ -1,0 +1,15 @@
+body {
+  margin: 0 auto;
+}
+.content {
+  margin: 0 auto;
+  width: 600px;
+  text-align: center;
+}
+.content > ul {
+  margin-left: 20%;
+  text-align: left;
+}
+.edit {
+  color: red;
+}
